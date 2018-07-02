@@ -103,6 +103,25 @@
       <string>Binary - BW</string>
      </property>
     </widget>
+    <widget class="QRadioButton" name="histo_rb">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>30</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Histogram</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="sobel_gb">
     <property name="enabled">

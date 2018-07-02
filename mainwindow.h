@@ -8,7 +8,8 @@
 enum output_type{
     gray_scale,
     sobel_operator,
-    binary_black_white
+    binary_black_white,
+    histogram
 };
 
 namespace Ui {
@@ -39,7 +40,8 @@ private:
     ///Opertaors
     QImage get_gray_scale(cv::Mat input);
     QImage get_sobel_operator(cv::Mat input);
-    QImage binary(cv::Mat input);
+    QImage get_binary(cv::Mat input);
+    QImage get_histogram(cv::Mat input);
 
 
 public slots:
@@ -54,6 +56,7 @@ private slots:
     void on_scale_hsb_valueChanged(int value);
     void on_binary_rb_clicked(bool checked);
     void on_threshold_hsb_valueChanged(int value);
+    void on_histo_rb_clicked(bool checked);
 };
 
 #endif // MAINWINDOW_H
