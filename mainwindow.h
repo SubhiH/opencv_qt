@@ -8,8 +8,11 @@
 enum output_type{
     gray_scale,
     sobel_operator,
+    histogram,
     binary_black_white,
-    histogram
+    normalize_block_filter,
+    guassian_filter,
+    median_filter
 };
 
 namespace Ui {
@@ -42,6 +45,9 @@ private:
     QImage get_sobel_operator(cv::Mat input);
     QImage get_binary(cv::Mat input);
     QImage get_histogram(cv::Mat input);
+    QImage get_median(cv::Mat input);
+    QImage get_guassian(cv::Mat input);
+    QImage get_block_normalize(cv::Mat input);
 
 
 public slots:
@@ -57,6 +63,9 @@ private slots:
     void on_binary_rb_clicked(bool checked);
     void on_threshold_hsb_valueChanged(int value);
     void on_histo_rb_clicked(bool checked);
+    void on_normalize_filter_rb_clicked(bool checked);
+    void on_gaussian_rb_clicked(bool checked);
+    void on_median_rb_clicked(bool checked);
 };
 
 #endif // MAINWINDOW_H

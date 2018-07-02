@@ -61,7 +61,7 @@
     <widget class="QRadioButton" name="sobel_rb">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>10</x>
        <y>60</y>
        <width>100</width>
        <height>20</height>
@@ -74,7 +74,7 @@
     <widget class="QRadioButton" name="gray_scale_rb">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>10</x>
        <y>30</y>
        <width>100</width>
        <height>20</height>
@@ -93,7 +93,7 @@
     <widget class="QRadioButton" name="binary_rb">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>10</x>
        <y>90</y>
        <width>100</width>
        <height>20</height>
@@ -106,7 +106,7 @@
     <widget class="QRadioButton" name="histo_rb">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>130</x>
        <y>30</y>
        <width>100</width>
        <height>20</height>
@@ -114,6 +114,118 @@
      </property>
      <property name="text">
       <string>Histogram</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="histo_rb_2">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>60</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Histogram</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="histo_rb_3">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>90</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Histogram</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="normalize_filter_rb">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>30</y>
+       <width>111</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <kerning>false</kerning>
+      </font>
+     </property>
+     <property name="text">
+      <string>Normalized Block 
+Filter</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="gaussian_rb">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>60</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Gaussian Filter</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="median_rb">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>90</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Median Filte</string>
      </property>
      <property name="checkable">
       <bool>true</bool>
@@ -289,6 +401,11 @@
        <width>60</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Threshold:</string>

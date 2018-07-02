@@ -45,6 +45,9 @@ void MainWindow::get_new_frame(){
          ui->output_img_lbl->setPixmap(QPixmap::fromImage(get_binary(origial_frame)).scaled(ui->output_img_lbl->size(), Qt::KeepAspectRatio));
       }else if(type == output_type::histogram){
          ui->output_img_lbl->setPixmap(QPixmap::fromImage(get_histogram(origial_frame)).scaled(ui->output_img_lbl->size(), Qt::KeepAspectRatio));
+      }else if(type == output_type::median_filter){
+         std::cout<<"a"<<"median_filter ";
+         ui->output_img_lbl->setPixmap(QPixmap::fromImage(get_median(origial_frame)).scaled(ui->output_img_lbl->size(), Qt::KeepAspectRatio));
       }
 }
 
@@ -138,6 +141,28 @@ QImage MainWindow::get_histogram(cv::Mat input){
       return q_img_output;
 }
 
+
+QImage MainWindow::get_median(cv::Mat input){
+    int kernel_size=ui->threshold_hsb->value();
+    if (kernel_size!=0){
+        cv::blur( input, output_frame, cv::Size(kernel_size, kernel_size), cv::Point(-1,-1));
+        QImage q_img_output ((uchar*) output_frame.data,output_frame.cols,output_frame.rows,output_frame.step,QImage::Format_RGB888);
+        return q_img_output;
+    }else{
+        QImage q_img_output ((uchar*) input.data,input.cols,input.rows,input.step,QImage::Format_RGB888);
+        return q_img_output;
+    }
+
+}
+
+QImage MainWindow::get_guassian(cv::Mat input){
+
+}
+
+QImage MainWindow::get_block_normalize(cv::Mat input){
+
+}
+
 void MainWindow::on_groupBox_clicked(bool checked)
 {
     std::cout<<"clicked"<<std::endl;
@@ -170,6 +195,7 @@ void MainWindow::on_binary_rb_clicked(bool checked)
     type = output_type::binary_black_white;
     ui->sobel_gb->hide();
     ui->binary_gb->show();
+    ui->threshold_lbl->setText("Threshold:");
 }
 
 void MainWindow::on_scale_hsb_rangeChanged(int min, int max)
@@ -193,3 +219,29 @@ void MainWindow::on_threshold_hsb_valueChanged(int value)
 }
 
 
+
+void MainWindow::on_normalize_filter_rb_clicked(bool checked)
+{
+    type = output_type::normalize_block_filter;
+    ui->sobel_gb->hide();
+    ui->binary_gb->show();
+
+    ui->threshold_lbl->setText("Kernel Size:");
+
+}
+
+void MainWindow::on_gaussian_rb_clicked(bool checked)
+{
+    type = output_type::guassian_filter;
+    ui->sobel_gb->hide();
+    ui->binary_gb->show();
+    ui->threshold_lbl->setText("Kernel Size:");
+}
+
+void MainWindow::on_median_rb_clicked(bool checked)
+{
+    type = output_type::median_filter;
+    ui->sobel_gb->hide();
+    ui->binary_gb->show();
+    ui->threshold_lbl->setText("Kernel Size:");
+}
