@@ -13,7 +13,8 @@ enum output_type{
     binary_black_white,
     normalize_block_filter,
     guassian_filter,
-    median_filter
+    median_filter,
+    hsv
 };
 
 namespace Ui {
@@ -50,6 +51,7 @@ private:
     QImage get_guassian(cv::Mat input);
     QImage get_block_normalize(cv::Mat input);
     QImage get_canny(cv::Mat input);
+    QImage get_hsv(cv::Mat input);
 
 
 public slots:
@@ -72,6 +74,14 @@ private slots:
     void on_k_size_hsb_valueChanged(int value);
     void on_ratio_hsb_valueChanged(int value);
     void on_lower_thres_hsb_valueChanged(int value);
+    void on_low_h_hsb_valueChanged(int value);
+    void on_high_h_hsb_valueChanged(int value);
+    void on_low_s_hsb_2_valueChanged(int value);
+    void on_high_s_hsb_valueChanged(int value);
+    void on_low_s_hsb_valueChanged(int value);
+    void on_high_v_hsb_valueChanged(int value);
+    void on_hsv_rb_clicked(bool checked);
+    void on_low_v_hsb_valueChanged(int value);
 };
 
 #endif // MAINWINDOW_H

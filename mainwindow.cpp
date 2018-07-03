@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->sobel_gb->hide();
     ui->binary_gb->hide();
     ui->canny_gb->hide();
+    ui->hsv_gb->hide();
 
     capture = cv::VideoCapture(0);
     if(!capture.isOpened())  // check if we succeeded
@@ -54,6 +55,8 @@ void MainWindow::get_new_frame(){
          ui->output_img_lbl->setPixmap(QPixmap::fromImage(get_median(origial_frame)).scaled(ui->output_img_lbl->size(), Qt::KeepAspectRatio));
       }else if(type == output_type::canny){
          ui->output_img_lbl->setPixmap(QPixmap::fromImage(get_canny(origial_frame)).scaled(ui->output_img_lbl->size(), Qt::KeepAspectRatio));
+      }else if(type == output_type::hsv){
+         ui->output_img_lbl->setPixmap(QPixmap::fromImage(get_hsv(origial_frame)).scaled(ui->output_img_lbl->size(), Qt::KeepAspectRatio));
       }
 }
 
@@ -207,26 +210,24 @@ QImage MainWindow::get_canny(cv::Mat input){
     return q_img_output;
 }
 
+QImage MainWindow::get_hsv(cv::Mat input){
+    auto low_H = ui->low_h_hsb->value();
+    auto low_S = ui->low_s_hsb_2->value();
+    auto low_V = ui->low_v_hsb->value();
+    auto high_H = ui->high_h_hsb->value();
+    auto high_S = ui->high_s_hsb->value();
+    auto high_V = ui->high_v_hsb->value();
+    // Convert from BGR to HSV colorspace
+    cv::cvtColor(input, output_frame, cv::COLOR_BGR2HSV);
+    // Detect the object based on HSV Range Values
+    cv::inRange(output_frame, cv::Scalar(low_H, low_S, low_V), cv::Scalar(high_H, high_S, high_V), output_frame);
+    QImage q_img_output ((uchar*) output_frame.data,output_frame.cols,output_frame.rows,output_frame.step,QImage::Format_Indexed8);
+    return q_img_output;
+}
+
 void MainWindow::on_groupBox_clicked(bool checked)
 {
     std::cout<<"clicked"<<std::endl;
-}
-
-void MainWindow::on_gray_scale_rb_clicked(bool checked)
-{
-     type = output_type::gray_scale;
-     ui->sobel_gb->hide();
-     ui->binary_gb->hide();
-
-}
-
-void MainWindow::on_sobel_rb_clicked(bool checked)
-{
-    type = output_type::sobel_operator;
-    ui->sobel_gb->show();
-    ui->canny_gb->hide();
-    ui->binary_gb->hide();
-    ui->sobel_gb->raise();
 }
 
 void MainWindow::on_scale_hsb_rangeChanged(int min, int max)
@@ -264,10 +265,46 @@ void MainWindow::on_threshold_hsb_valueChanged(int value)
     ui->threshold_value_lbl->setText(QString::fromStdString(std::to_string(value)));
 }
 
+void MainWindow::on_low_h_hsb_valueChanged(int value)
+{
+    ui->low_h_value_lbl->setText(QString::fromStdString(std::to_string(value)));
+}
+
+void MainWindow::on_high_h_hsb_valueChanged(int value)
+{
+    ui->high_h_value_lbl->setText(QString::fromStdString(std::to_string(value)));
+}
+
+void MainWindow::on_low_s_hsb_2_valueChanged(int value)
+{
+    ui->low_s_value_lbl->setText(QString::fromStdString(std::to_string(value)));
+}
+
+void MainWindow::on_high_s_hsb_valueChanged(int value)
+{
+    ui->high_s_value_lbl->setText(QString::fromStdString(std::to_string(value)));
+}
+
+void MainWindow::on_low_s_hsb_valueChanged(int value)
+{
+    ui->low_v_value_lbl->setText(QString::fromStdString(std::to_string(value)));
+}
+
+void MainWindow::on_high_v_hsb_valueChanged(int value)
+{
+    ui->low_v_value_lbl->setText(QString::fromStdString(std::to_string(value)));
+}
+
+void MainWindow::on_low_v_hsb_valueChanged(int value)
+{
+    ui->high_v_value_lbl->setText(QString::fromStdString(std::to_string(value)));
+}
+
 void MainWindow::on_histo_rb_clicked(bool checked)
 {
     type = output_type::histogram;
     ui->sobel_gb->hide();
+    ui->hsv_gb->hide();
     ui->binary_gb->hide();
 }
 
@@ -276,7 +313,28 @@ void MainWindow::on_binary_rb_clicked(bool checked)
     type = output_type::binary_black_white;
     ui->sobel_gb->hide();
     ui->binary_gb->show();
+    ui->hsv_gb->hide();
     ui->threshold_lbl->setText("Threshold:");
+    ui->binary_gb->raise();
+}
+
+void MainWindow::on_gray_scale_rb_clicked(bool checked)
+{
+     type = output_type::gray_scale;
+     ui->sobel_gb->hide();
+     ui->binary_gb->hide();
+     ui->canny_gb->hide();
+     ui->hsv_gb->hide();
+
+}
+
+void MainWindow::on_sobel_rb_clicked(bool checked)
+{
+    type = output_type::sobel_operator;
+    ui->sobel_gb->show();
+    ui->canny_gb->hide();
+    ui->binary_gb->hide();
+    ui->sobel_gb->raise();
 }
 
 void MainWindow::on_normalize_filter_rb_clicked(bool checked)
@@ -284,6 +342,7 @@ void MainWindow::on_normalize_filter_rb_clicked(bool checked)
     type = output_type::normalize_block_filter;
     ui->sobel_gb->hide();
     ui->canny_gb->hide();
+    ui->hsv_gb->hide();
     ui->binary_gb->show();
 
     ui->threshold_lbl->setText("Kernel Size:");
@@ -295,6 +354,7 @@ void MainWindow::on_gaussian_rb_clicked(bool checked)
     type = output_type::guassian_filter;
     ui->sobel_gb->hide();
     ui->canny_gb->hide();
+    ui->hsv_gb->hide();
     ui->binary_gb->show();
     ui->threshold_lbl->setText("Kernel Size:");
 }
@@ -304,6 +364,7 @@ void MainWindow::on_median_rb_clicked(bool checked)
     type = output_type::median_filter;
     ui->sobel_gb->hide();
     ui->canny_gb->hide();
+    ui->hsv_gb->hide();
     ui->binary_gb->show();
     ui->threshold_lbl->setText("Kernel Size:");
 }
@@ -313,9 +374,19 @@ void MainWindow::on_canny_rb_clicked(bool checked)
     type = output_type::canny;
     ui->sobel_gb->hide();
     ui->binary_gb->hide();
+    ui->hsv_gb->hide();
     ui->canny_gb->show();
     ui->canny_gb->raise();
 }
 
+void MainWindow::on_hsv_rb_clicked(bool checked)
+{
+    type = output_type::hsv;
+    ui->sobel_gb->hide();
+    ui->binary_gb->hide();
+    ui->canny_gb->hide();
+    ui->hsv_gb->show();
+    ui->hsv_gb->raise();
+}
 
 
