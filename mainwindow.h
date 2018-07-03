@@ -8,6 +8,7 @@
 enum output_type{
     gray_scale,
     sobel_operator,
+    canny,
     histogram,
     binary_black_white,
     normalize_block_filter,
@@ -48,6 +49,7 @@ private:
     QImage get_median(cv::Mat input);
     QImage get_guassian(cv::Mat input);
     QImage get_block_normalize(cv::Mat input);
+    QImage get_canny(cv::Mat input);
 
 
 public slots:
@@ -66,6 +68,10 @@ private slots:
     void on_normalize_filter_rb_clicked(bool checked);
     void on_gaussian_rb_clicked(bool checked);
     void on_median_rb_clicked(bool checked);
+    void on_canny_rb_clicked(bool checked);
+    void on_k_size_hsb_valueChanged(int value);
+    void on_ratio_hsb_valueChanged(int value);
+    void on_lower_thres_hsb_valueChanged(int value);
 };
 
 #endif // MAINWINDOW_H

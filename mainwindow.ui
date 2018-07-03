@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>767</width>
-    <height>510</height>
+    <width>880</width>
+    <height>677</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,8 +61,8 @@
     <widget class="QRadioButton" name="sobel_rb">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>60</y>
+       <x>130</x>
+       <y>30</y>
        <width>100</width>
        <height>20</height>
       </rect>
@@ -94,7 +94,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>90</y>
+       <y>60</y>
        <width>100</width>
        <height>20</height>
       </rect>
@@ -106,8 +106,8 @@
     <widget class="QRadioButton" name="histo_rb">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>30</y>
+       <x>10</x>
+       <y>90</y>
        <width>100</width>
        <height>20</height>
       </rect>
@@ -122,7 +122,7 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QRadioButton" name="histo_rb_2">
+    <widget class="QRadioButton" name="canny_rb">
      <property name="geometry">
       <rect>
        <x>130</x>
@@ -132,7 +132,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Histogram</string>
+      <string>Canny</string>
      </property>
      <property name="checkable">
       <bool>true</bool>
@@ -425,13 +425,197 @@ Filter</string>
      </property>
     </widget>
    </widget>
+   <widget class="QGroupBox" name="canny_gb">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>320</y>
+      <width>381</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Canny Operator Parameter</string>
+    </property>
+    <widget class="QSlider" name="lower_thres_hsb">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>30</y>
+       <width>160</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="invertedAppearance">
+      <bool>false</bool>
+     </property>
+     <property name="invertedControls">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QSlider" name="ratio_hsb">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>60</y>
+       <width>160</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="singleStep">
+      <number>2</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lower_thres_lbl">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Lower threshold:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ration_lbl">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>60</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Ratio:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lower_thres_value_lbl">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>30</y>
+       <width>31</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ratio_value_lbl">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>60</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="k_size_value_lbl">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>90</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>3</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="k_size_hsb">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>90</y>
+       <width>160</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>3</number>
+     </property>
+     <property name="maximum">
+      <number>7</number>
+     </property>
+     <property name="singleStep">
+      <number>2</number>
+     </property>
+     <property name="value">
+      <number>3</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="k_size_lbl">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Kernal Size:</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>767</width>
+     <width>880</width>
      <height>22</height>
     </rect>
    </property>
