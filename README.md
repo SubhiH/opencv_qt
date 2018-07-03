@@ -5,6 +5,17 @@
 
 This is a simple and quick tool which is developed to explore some of the functions in OpenCV.
 
+<p align="left">
+  <img width=280 height=280 src="https://github.com/SubhiH/opencv_qt/blob/master/screenshots/demo1.png">
+    <img width=280 height=280 src="https://github.com/SubhiH/opencv_qt/blob/master/screenshots/demo2.png">
+    <img width=280 height=280 src="https://github.com/SubhiH/opencv_qt/blob/master/screenshots/demo3.png">
+</p>
+
+<br/>
+
+[Video](https://www.youtube.com/watch?v=a31aJzbKbFE)
+
+
 
 ### What we have done :
 
