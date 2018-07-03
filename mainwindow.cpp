@@ -316,6 +316,7 @@ void MainWindow::on_binary_rb_clicked(bool checked)
     ui->hsv_gb->hide();
     ui->threshold_lbl->setText("Threshold:");
     ui->binary_gb->raise();
+    ui->binary_gb->setTitle("Binary Parameter");
 }
 
 void MainWindow::on_gray_scale_rb_clicked(bool checked)
@@ -344,6 +345,7 @@ void MainWindow::on_normalize_filter_rb_clicked(bool checked)
     ui->canny_gb->hide();
     ui->hsv_gb->hide();
     ui->binary_gb->show();
+    ui->binary_gb->setTitle("Parameters");
 
     ui->threshold_lbl->setText("Kernel Size:");
 
@@ -357,6 +359,7 @@ void MainWindow::on_gaussian_rb_clicked(bool checked)
     ui->hsv_gb->hide();
     ui->binary_gb->show();
     ui->threshold_lbl->setText("Kernel Size:");
+    ui->binary_gb->setTitle("Parameters");
 }
 
 void MainWindow::on_median_rb_clicked(bool checked)
@@ -367,6 +370,7 @@ void MainWindow::on_median_rb_clicked(bool checked)
     ui->hsv_gb->hide();
     ui->binary_gb->show();
     ui->threshold_lbl->setText("Kernel Size:");
+    ui->binary_gb->setTitle("Parameters");
 }
 
 void MainWindow::on_canny_rb_clicked(bool checked)

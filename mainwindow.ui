@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>880</width>
+    <width>764</width>
     <height>677</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>OpenCV</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="origianl_img_lbl">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>311</width>
-      <height>281</height>
+      <width>381</width>
+      <height>421</height>
      </rect>
     </property>
     <property name="text">
@@ -32,8 +32,8 @@
      <rect>
       <x>380</x>
       <y>0</y>
-      <width>321</width>
-      <height>281</height>
+      <width>381</width>
+      <height>421</height>
      </rect>
     </property>
     <property name="text">
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>320</y>
+      <y>490</y>
       <width>351</width>
       <height>121</height>
      </rect>
@@ -242,7 +242,7 @@ Filter</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>320</y>
+      <y>490</y>
       <width>381</width>
       <height>121</height>
      </rect>
@@ -354,7 +354,7 @@ Filter</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>350</y>
+      <y>520</y>
       <width>351</width>
       <height>61</height>
      </rect>
@@ -432,7 +432,7 @@ Filter</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>320</y>
+      <y>490</y>
       <width>381</width>
       <height>121</height>
      </rect>
@@ -616,7 +616,7 @@ Filter</string>
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>320</y>
+      <y>430</y>
       <width>381</width>
       <height>181</height>
      </rect>
@@ -967,7 +967,7 @@ Filter</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>880</width>
+     <width>764</width>
      <height>22</height>
     </rect>
    </property>
