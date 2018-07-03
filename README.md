@@ -30,7 +30,7 @@ This is a simple and quick tool which is developed to explore some of the functi
 - [x] Median Filter
 
 
-### What we need to do (You can add to list whatever you want!) :
+### What we need to do (you can add to the list whatever you want!) :
 
 - [ ] YCrCb Color Space
 - [ ] Find Contour
