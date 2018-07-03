@@ -17,7 +17,7 @@ This is a simple and quick tool which is developed to explore some of the functi
 
 
 
-### What we have done :
+### Already done :
 
 - [x] Gray Scale
 - [x] Binary - White/Black
@@ -30,7 +30,7 @@ This is a simple and quick tool which is developed to explore some of the functi
 - [x] Median Filter
 
 
-### What we need to do (you can add to the list whatever you want!) :
+### To-Do (you can add to the list whatever you want!) :
 
 - [ ] YCrCb Color Space
 - [ ] Find Contour
@@ -38,3 +38,4 @@ This is a simple and quick tool which is developed to explore some of the functi
 - [ ] Erosion
 - [ ] Dilation
 
+### You are welcome to contribute 😉
