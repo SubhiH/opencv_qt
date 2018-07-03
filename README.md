@@ -1,9 +1,9 @@
-# opencv_qt
+# OpenCV_Qt
 
 [![Qt](https://img.shields.io/badge/Qt-5.11.1-brightgreen.svg)](https://www.qt.io)
 [![Qt](https://img.shields.io/badge/opencv-3-blue.svg)](https://docs.opencv.org)
 
-This is a simple and quick tool developed to explore some of OpenCV functions.
+This simple tool is built using QT to show the result of some of OpenCV functions.
 
 <p align="left">
   <img width=280 height=280 src="https://github.com/SubhiH/opencv_qt/blob/master/screenshots/demo1.png">
