@@ -13,7 +13,7 @@ This is a simple and quick tool which is developed to explore some of the functi
 
 <br/>
 
-[Video](https://www.youtube.com/watch?v=a31aJzbKbFE)
+[Youtube Demo Video](https://www.youtube.com/watch?v=a31aJzbKbFE)
 
 
 
